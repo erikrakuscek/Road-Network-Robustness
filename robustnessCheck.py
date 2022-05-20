@@ -69,15 +69,6 @@ def global_efficiency(G):
         d[i].update((x, 0 if y == 0 else 1/y) for x, y in d[i].items())
         s = s + sum(d[i].values())
     return (1 / (G.number_of_nodes() * (G.number_of_nodes() - 1))) * s
-    
-
-def global_efficiency_dijkstra(G):
-    d = dict(nx.all_pairs_dijkstra_path_length(G, weight='length'))
-    s = 0
-    for i in d:
-        d[i].update((x, 0 if y == 0 else 1/y) for x, y in d[i].items())
-        s = s + sum(d[i].values())
-    return (1 / (G.number_of_nodes() * (G.number_of_nodes() - 1))) * s
 
 
 def get_nearest_node(g, x, y):
