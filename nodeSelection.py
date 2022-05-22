@@ -10,6 +10,23 @@ from statistics import mean
 from tqdm import tqdm
 import time
 
+
+def get_min_node_degree(g):
+    return min(map(lambda x: x[1], g.degree()))
+
+
+def get_max_node_degree(g):
+    return max(map(lambda x: x[1], g.degree()))
+
+
+def get_average_node_degree(g):
+    return g.number_of_edges() / g.number_of_nodes()
+
+
+def get_density(g):
+    return g.number_of_edges() / (g.number_of_nodes() * (g.number_of_nodes() - 1))
+
+
 def read_net(file_name):
     """Read network"""
     G = nx.Graph(name=file_name)  # define empty graph
